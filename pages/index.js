@@ -9,19 +9,22 @@ export default function Home() {
 
   const handleButtonClick = async () => {
     try {
-      const res = await fetch("http:localhost:5000/process-user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ user: inputText }),
-      });
+      router.push("/done");
+      const res = await fetch(
+        "https://one-elf-proven.ngrok-free.app/process-user",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ user: inputText }),
+        }
+      );
 
       if (res.ok) {
         console.log("User text processed successfully");
 
         // 在这里执行路由导航
-        router.push("/done");
       } else {
         console.error("Failed to process user text");
       }
