@@ -8,12 +8,8 @@ export default function Home() {
   const router = useRouter();
 
   const handleButtonClick = async () => {
-    router.push("/done");
     try {
-      const apiUrl = process.env.NEXT_PUBLIC_API_URL; // 获取环境变量
-
-      const res = await fetch(`${apiUrl}/process-user`, {
-        // 使用环境变量构建 API URL
+      const res = await fetch("http:localhost:5000/process-user", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,6 +21,7 @@ export default function Home() {
         console.log("User text processed successfully");
 
         // 在这里执行路由导航
+        router.push("/done");
       } else {
         console.error("Failed to process user text");
       }
