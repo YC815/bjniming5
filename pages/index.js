@@ -11,7 +11,7 @@ export default function Home() {
     try {
       router.push("/done");
       const res = await fetch(
-        "https://2de8-150-116-215-210.ngrok-free.app/process-user",
+        " https://one-elf-proven.ngrok-free.app/process-user",
         {
           method: "POST",
           headers: {
