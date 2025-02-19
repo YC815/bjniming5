@@ -9,7 +9,12 @@ export default function Home() {
 
   const handleButtonClick = async () => {
     try {
+      console.log("🔹 按鈕被點擊，開始執行 handleButtonClick");
+
+      console.log("🔹 導航到 /done 頁面");
       router.push("/done");
+
+      console.log("🔹 發送請求到後端 API...");
       const res = await fetch(
         "https://bjniming-e8df7673545f.herokuapp.com/process-user",
         {
@@ -21,15 +26,17 @@ export default function Home() {
         }
       );
 
-      if (res.ok) {
-        console.log("User text processed successfully");
+      console.log("🔹 API 回應收到，狀態碼:", res.status);
 
-        // 在这里执行路由导航
+      if (res.ok) {
+        console.log("✅ 使用者文字處理成功");
       } else {
-        console.error("Failed to process user text");
+        console.error("❌ 使用者文字處理失敗，狀態碼:", res.status);
+        const errorData = await res.json();
+        console.error("❌ 錯誤訊息:", errorData);
       }
     } catch (error) {
-      console.error("Error:", error);
+      console.error("❌ 發生錯誤:", error);
     }
   };
 
