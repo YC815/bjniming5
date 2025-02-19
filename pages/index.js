@@ -11,7 +11,7 @@ export default function Home() {
     try {
       router.push("/done");
       const res = await fetch(
-        " https://one-elf-proven.ngrok-free.app/process-user",
+        "https://bjniming-e8df7673545f.herokuapp.com/process-user",
         {
           method: "POST",
           headers: {

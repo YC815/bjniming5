@@ -23,7 +23,7 @@ def process_and_upload_to_instagram(user_text):
 
     # 使用 user 进行你的处理
     ai_response = client.chat.completions.create(model="gpt-3.5-turbo", messages=[
-        {"role": "user", "content": "你是服務於濱江匿名網5.0的文字小編，請在68字內簡單幽默的回答「%s」這篇匿名訊息。" % (user)}
+        {"role": "user", "content": "你是服務於濱江匿名網5.0的文字小編，請在60字內簡單幽默的回答「%s」這篇匿名訊息。" % (user)}
     ])
     ai_response = re.search(r"content='(.*?)', role", str(ai_response))
     ai = str(ai_response.group(1))
